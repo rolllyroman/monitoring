@@ -1,0 +1,12 @@
+/srcs/PIL
+
+/srcs/PILBIN
+
+/srcs/mahjong/static/assest/default/node_modules
+*.zip
+*.rar
+
+*.pyc
+
+
+

@@ -41,10 +41,10 @@ class RedisPlugin(object):
                         "conflicting settings (non-unique keyword).")
 
         if self.redisdb is None:  #主库
-            self.redisdb = redis.ConnectionPool(host=self.host, port=self.port, db=self.database, password="Fkkg65NbRwQOnq01OGMPy5ZREsNUeURm")
+            self.redisdb = redis.ConnectionPool(host=self.host, port=self.port, db=self.database, password="")
 
         if self.redisReadDb is None:#从库,做读配置
-            self.redisReadDb = redis.ConnectionPool(host=self.read_host, port=self.read_port, db=self.read_database, password='Fkkg65NbRwQOnq01OGMPy5ZREsNUeURm')
+            self.redisReadDb = redis.ConnectionPool(host=self.read_host, port=self.read_port, db=self.read_database, password='')
 
     def apply(self,callback,context):
         args = inspect.getargspec(context['callback'])[0]
