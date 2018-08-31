@@ -9,8 +9,8 @@ Revision: $Revision$
 Description:
     翻译文本
 """
-MAHJONG_TITLE_TXT = '东胜后台管理系统'
-MAHJONG_LOGIN_TITLE_TXT = '客服系统登录'
+MAHJONG_TITLE_TXT = '捕鱼监控后台管理系统'
+MAHJONG_LOGIN_TITLE_TXT = '捕鱼监控系统登录'
 COPY_RIGHT_TXT    = '2018 后台管理系统'
 
 SELF_INFO_TXT = '个人信息'
