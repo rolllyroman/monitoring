@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\mahjong",
+    "\\mahjong\\admin",
+    "\\mahjong\\fish",
+    "\\mahjong\\hall",
+    "\\mahjong\\model",
+    "\\mahjong\\static",
+    "\\mahjong\\template",
+    "\\mahjong\\template\\default",
+    "\\server_common"
+  ],
+  "SelectedNode": "\\mahjong\\hall\\hall.py",
+  "PreviewInSolutionExplorer": false
+}

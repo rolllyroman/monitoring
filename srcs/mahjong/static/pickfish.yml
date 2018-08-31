@@ -1,0 +1,480 @@
+swagger: '3.0'
+info: {title: bottle-swagger, version: 3.0.0}
+produces: [application/json]
+consumes: [application/json]
+definitions:
+  response_success:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      msg:
+        type: string
+        description: 信息
+    type: object
+
+paths:
+  /fish/login:
+    post:
+      summary: 捕鱼登录接口
+      description: 捕鱼登录接口
+      parameters:
+        - {in: formData, description: "登录账号 或者微信授权CODE或者unionid", name: account, required: true, type: string }
+        - {in: formData, description: "客户端类型 0=WEB 1=安卓 2=IOS", name: clientType, required: true, type: integer }
+        - {in: formData, description: "默认公会", name: groupId, required: false, type: integer }
+        - {in: formData, description: "密码", name: passwd, required: false, type: string }
+        - {in: formData, description: "类型 0=用户名登录 1=微信登录授权CODE 2=unionid登录 3=微信WEBcode登录", name: type, required: true, type: integer }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                description: 编号 1= 失败 0=成功
+              userInfo:
+                type: object
+                properties:
+                  shop:
+                    type: integer
+                    description: 是否开启商城（不需要使用）
+                  account:
+                    type: string
+                    description: 账号（系统生成的帐号，可以不使用）
+                  user_id:
+                    type: string
+                    description: 系统生成的用户编号
+                  name:
+                    type: string
+                    description: 名称 （用户名称）
+                  level:
+                    type: integer
+                    description: 1=一级管理员 2=二级管理员 3=普通玩家
+                  agent_id:
+                    type: string
+                    description: 所属公会号码（当前用户所属的工会号码）
+                  parent_id:
+                    type: string
+                    description: 上级工会号
+                  top_agent:
+                    type: string
+                    description: 最顶级的工会
+                  exchangeIntoCode:
+                    type: string
+                    description: 会员邀请码
+              loginMsg:
+                  type: array
+                  items:
+                    type: string
+                    description: 登录是的消息提醒（用于额外消息提醒。）
+              sid:
+                type: string
+                description: 用户生成的SID
+      tags:
+        - 登录
+
+  /fish/agent/child:
+    get:
+      summary: 获取下级代理列表
+      description: 获取下级代理列表接口
+      parameters:
+        - {in: query, description: "当前代理ID", name: agent_id, required: true, type: string }
+        - {in: query, description: "当前用户user_id", name: user_id, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: '返回值'
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                description: 编号 1= 失败 0=成功
+              list:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    agent_id:
+                      type: string
+                      description: 代理ID
+                    number:
+                      type: integer
+                      description: 用户数量
+                    valid:
+                      type: integer
+                      description: 是否冻结
+                    reg_date:
+                      type: string
+                      description: 注册时间
+                    code:
+                      type: string
+                      description: 邀请码
+                    exchangeIntoCode:
+                      type: string
+                      description: 进入该公会的邀请码
+                    manager:
+                      type: object
+                      properties:
+                        user_id:
+                          type: integer
+                          description: 用户ID
+                        name:
+                          type: string
+                          description: 名字
+                        sex:
+                          description: 性别
+                          type: string
+                        avatar_url:
+                          description: 标代理的管理者头像
+                          type: string
+              msg:
+                type: string
+                description: 成功|失败
+
+      tags:
+        - 代理操作
+    post:
+      summary: 新增下级代理
+      description: 新增下级代理
+      parameters:
+        - {in: formData, description: "管理的代理ID", name: agent_id, required: true, type: string }
+        - {in: formData, description: "当前用户user_id", name: user_id, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: '返回值'
+          schema:
+            properties:
+            code:
+              type: integer
+              description: 编号 1= 失败 0=成功
+            agent_id:
+              type: string
+              description: 新增的代理ID
+            msg:
+              type: string
+              description: 信息
+            extendCode:
+              type: string
+              description: 邀请码(16位)
+            exchangeIntoCode:
+              type: string
+              description: 用户进入公会的邀请码(12位)
+
+      tags:
+        - 代理操作
+
+  /fish/agent/child/<child_id>:
+  #   get:
+  #     summary: 获取下级代理详细信息
+  #     description: 获取下级代理详细信息接口
+  #     parameters:
+  #       - {in: query, description: "当前代理ID", name: agent_id, required: true, type: string }
+  #       - {in: query, description: "当前用户unionID", name: user_id, required: true, type: string }
+  #       - {in: query, description: "目标代理ID", name: child_id, required: true, type: integer }
+  #     produces:
+  #       - application/json
+  #     consumes:
+  #       - application/x-www-form-urlencoded
+  #     responses:
+  #       '200':
+  #         description: '返回值'
+  #         schema:
+  #           type: object
+  #           properties:
+  #             code:
+  #               type: integer
+  #               description: 编号 1= 失败 0=成功
+  #             data:
+  #               type: object
+  #               properties:
+  #                 agent_id:
+  #                   type: string
+  #                   description: 代理ID
+  #                 agent_user_name:
+  #                   description: 目标代理的管理者名称
+  #                   type: string
+  #                 agent_user_account:
+  #                   description: 目标代理的管理者账号
+  #                   type: string
+  #                 avatar_url:
+  #                   description: 头像
+  #                   type: string
+  #                 agent_user_number:
+  #                   type: integer
+  #                   description: 人数
+  #                 agent_card:
+  #                   type: integer
+  #                   description: 总消耗砖石数
+  #             msg:
+  #               type: string
+  #               description: 成功|失败
+  #     tags:
+  #       - 代理操作
+    post:
+      summary: 冻结代理
+      description: 冻结代理
+      parameters:
+        - {in: formData, description: "当前代理ID", name: agent_id, required: true, type: string }
+        - {in: formData, description: "当前用户user_id", name: user_id, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: '返回值'
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                description: 编号 1= 失败 0=成功
+              msg:
+                type: string
+                description: 信息
+      tags:
+        - 代理操作
+
+  /fish/join_group:
+    post:
+      summary: 加入工会
+      description: 加入工会
+      parameters:
+        - {in: formData, description: "当前用户ID", name: user_id, required: true, type: string }
+        - {in: formData, description: "目标代理邀请码", name: code, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: '返回值'
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                description: 编号 1= 失败 0=成功
+              msg:
+                type: string
+                description: 信息
+      tags:
+        - 代理操作
+
+  /fish/order:
+    post:
+      summary: 存储捕鱼订单信息
+      description: 存储捕鱼订单信息
+      parameters:
+        - {in: formData, description: "当前用户ID", name: user_id, required: true, type: integer }
+        - {in: formData, description: "捕鱼用户账号", name: user_account, required: true, type: string }
+        - {in: formData, description: "用户充值前金额", name: pre_balance, required: true, type: string }
+        - {in: formData, description: "用户充值后金额", name: after_balance, required: true, type: string }
+        - {in: formData, description: "用户充值状态 -1=失败 1=成功", name: status, required: true, type: integer }
+        - {in: formData, description: "用户当前充值金额", name: balance, required: true, type: string }
+        - {in: formData, description: "订单号", name: order_no, required: true, type: string }
+        - {in: formData, description: "消费点", name: consume, required: true, type: string }
+        - {in: formData, description: "二级代理", name: agent_id, required: true, type: string }
+        - {in: formData, description: "一级代理", name: top_agent, required: true, type: string }
+        - {in: formData, description: "用户等级", name: level, required: true, type: integer }
+        - {in: formData, description: "微信返回信息， 需要用正规的JSON格式转成字符串传递", name: pay_result, required: true, type: string }
+        - {in: formData, description: "充值时间（时间戳）", name: bill_time, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: '返回值'
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                description: 编号 1= 失败 0=成功
+              msg:
+                type: string
+                description: 信息
+      tags:
+        - 订单操作
+  /fish/user/relate:
+    post:
+      summary: 存储用户关联信息
+      description: 存储用户关联信息
+      parameters:
+        - {in: formData, description: "当前用户ID", name: user_id, required: true, type: integer }
+        - {in: formData, description: "捕鱼用户账号", name: number, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: '返回值'
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                description: 编号 1= 失败 0=成功
+              msg:
+                type: string
+                description: 信息
+      tags:
+        - 用户信息
+
+  # /agent/parent:
+  #   get:
+  #     summary: 获取上级ID信息
+  #     description: 获取上级ID信息
+  #     parameters:
+  #       - {in: formData, description: "用户SID", name: sid, required: true, type: string }
+  #       - {in: formData, description: "当前公会", name: agent_id, required: true, type: string }
+  #     produces:
+  #       - application/json
+  #     consumes:
+  #       - application/x-www-form-urlencoded
+  #     responses:
+  #       '200':
+  #         description: ''
+  #         schema:
+  #           type: object
+  #           properties:
+  #             code:
+  #               type: integer
+  #               description: 返回的CODE状态 0 = 成功
+  #             data:
+  #               type: object
+  #               properties:
+  #                 name:
+  #                   type: string
+  #                   description: 上级公会管理者用户名
+  #                 avatar_url:
+  #                   type: string
+  #                   description: 上级工会管理者头像
+  #     tags:
+  #       - 代理操作
+
+  /fish/exchange/agentCode:
+    get:
+      summary: 邀请码加入管理
+      description: 邀请码加入管理
+      parameters:
+        - {in: query, description: "玩家用户ID", name: user_id, required: true, type: string }
+        - {in: query, description: "邀请码", name: code, required: true, type: string }
+        # - {in: query, description: "兑换的公会号码", name: agent_id, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: ''
+          schema:     
+            properties:
+              code:
+                type: integer
+                description: 编号 1= 失败 0=成功
+              msg:
+                type: string
+                description: 信息
+              data:
+                type: object
+                properties:
+                  level:
+                    type: integer
+                    description: 等级
+                  agent_id:
+                    type: string
+                    description: 当前邀请的公会ID
+                  top_agent:
+                    type: string
+                    description: 一级公会ID
+                  exchangeIntoCode:
+                    type: string
+                    description: 邀请码
+            type: object
+          
+      tags:
+        - 兑换码
+
+#  /fish/exchageCodeCheck:
+#    post:
+#      summary: 是否已经兑换过
+#      description: 是否已经兑换过
+#      parameters:
+#        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+#      produces:
+#        - application/json
+#      consumes:
+#        - application/x-www-form-urlencoded
+#      responses:
+#        '200':
+#          description: ''
+#          schema: {$ref: '#/definitions/response_success'}
+#      tags:
+#        - 兑换码
+#
+#  /fish/actives:
+#    post:
+#      summary: 活动列表
+#      description: 活动列表
+#      parameters:
+#        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+#      produces:
+#        - application/json
+#      consumes:
+#        - application/x-www-form-urlencoded
+#      responses:
+#        '200':
+#          description: ''
+#          schema: {$ref: '#/definitions/response_active_success'}
+#      tags:
+#        - 活动
+#
+#  /fish/question:
+#    post:
+#      summary: 答题表单
+#      description: 答题表单
+#      parameters:
+#        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+#      produces:
+#        - application/json
+#      consumes:
+#        - application/x-www-form-urlencoded
+#      responses:
+#        '200':
+#          description: ''
+#          schema: {$ref: '#/definitions/response_question_success'}
+#      tags:
+#        - 活动
+#
+#  /fish/surver:
+#    post:
+#      summary: 问卷表单
+#      description: 问卷表单
+#      parameters:
+#        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+#      produces:
+#        - application/json
+#      consumes:
+#        - application/x-www-form-urlencoded
+#      responses:
+#        '200':
+#          description: ''
+#          schema: {$ref: '#/definitions/response_surver_success'}
+#      tags:
+#        - 活动
