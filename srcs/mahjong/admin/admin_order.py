@@ -27,12 +27,8 @@ def exchangeModify(redis,session):
     """
         设置开启关闭服务
     """
-    ip = request.forms.get("ip", "")
-    is_valid = request.forms.get("is_valid", "")
-    print '--------------------'
-    print ip
-    print is_valid
-    print '--------------------'
+    ip = request.GET.get("ip", "")
+    is_valid = request.GET.get("is_valid", "")
     if is_valid == '1':
         lrk = redis.hget("buyu:ip:%s:info"%ip,'last_req_rkey')
         redis.hset("buyu:ip:%s:info"%ip,'rkey',lrk)
