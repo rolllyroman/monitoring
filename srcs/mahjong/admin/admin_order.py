@@ -41,14 +41,16 @@ def do_inner(redis,session):
     redis.hmset("buyu:ip:%s:info"%ip,{
         "last_req_time":now,
         "last_req_rkey":rkey,
-        'last_req_code':1,
+        'last_req_code':"失败",
+        'ip'           :ip,
+        'rtype'        :"请求开启服务器" if rtype == '1' else "服务器运行中检查"
     })
 
     redis.sadd("req:ip:set",ip)
     real_rkey = redis.hget("buyu:ip:%s:info"%ip,'rkey')
 
     if real_rkey and rkey == real_rkey:
-        redis.hset("buyu:ip:%s:info"%ip,'last_req_code',0)
+        redis.hset("buyu:ip:%s:info"%ip,'last_req_code','成功')
         return {"code":0}
     else:
         return {"code":1}
