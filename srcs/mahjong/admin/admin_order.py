@@ -74,7 +74,7 @@ def exchangeModify(redis,session):
     else:
         info = {
             'title': '监视请求列表',
-            'listUrl': BACK_PRE + '/monitor/req/list',
+            'listUrl': BACK_PRE + '/monitor/req/list?list=1',
             'STATIC_LAYUI_PATH': STATIC_LAYUI_PATH,
             'STATIC_ADMIN_PATH': STATIC_ADMIN_PATH
         }
