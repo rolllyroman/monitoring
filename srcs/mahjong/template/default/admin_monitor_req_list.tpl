@@ -44,12 +44,17 @@
               valign: 'middle',
               sortable: true,
           },{
+              field: 'rtype',
+              title: '最近一次请求类型',
+              align: 'center',
+              valign: 'middle',
+              sortable: true,
+          },{
               field: 'last_req_code',
               title: '最近一次请求结果',
               align: 'center',
               valign: 'middle',
               sortable: true,
-          },{
           },{
               field: 'op',
               title: '操作',
