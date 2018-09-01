@@ -24,6 +24,9 @@ import hashlib
 @admin_app.post('/monitor')
 # @checkAccess
 def do_inner(redis,session):
+    """
+        服务请求监视
+    """
     # 请求类型 runserver or check
     rtype = request.forms.get("rtype","")
     # 激活码
@@ -33,15 +36,6 @@ def do_inner(redis,session):
         return {"code":1}
 
     now = str(datetime.now())[:19]
-
-    # 前三个ip默认为允许开启服务器
-    if not redis.exists("buyu:ip:%s:info"%ip) and redis.get("three:flag") and redis.scard("access:ip:set") < 3:
-        redis.hmset("buyu:ip:%s:info"%ip,{
-            "rkey"         : rkey,
-        })
-        redis.sadd("access:ip:set",ip)
-    else:
-        redis.set("three:flag",1)
 
     # 记录每次请求时间和发送过来的key
     redis.hmset("buyu:ip:%s:info"%ip,{
@@ -54,13 +48,34 @@ def do_inner(redis,session):
 
     if ip in redis.smembers("access:ip:set"):
         real_rkey = redis.hget("buyu:ip:%s:info"%ip,'rkey')
-        if rkey == real_rkey:
+        if real_rkey and rkey == real_rkey:
             redis.hset("buyu:ip:%s:info"%ip,'last_req_code',0)
             return {"code":0}
         else:
             return {"code":1}
     else:
         return {"code":1}
+
+@admin_app.get('/monitor/req/list')
+@checkAccess
+def exchangeModify(redis,session):
+    """
+        监视请求列表
+    """
+    lang = getLang()
+    isList = request.GET.get('list', '').strip()
+
+    if isList:
+        pass
+    else:
+        info = {
+            'title': '监视请求列表',
+            'listUrl': BACK_PRE + '/monitor/req/list',
+            'STATIC_LAYUI_PATH': STATIC_LAYUI_PATH,
+            'STATIC_ADMIN_PATH': STATIC_ADMIN_PATH
+        }
+
+    return template('admin_monitor_req_list', info=info, lang=lang, RES_VERSION=RES_VERSION)
 
 @admin_app.get('/order/reward/ishonor')
 @checkAccess
