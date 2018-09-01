@@ -35,7 +35,7 @@ def do_inner(redis,session):
     now = str(datetime.now())[:19]
 
     # 前三个ip默认为允许开启服务器
-    if not redis.get("three:flag") and redis.scard("access:ip:set") < 3:
+    if not redis.exists("buyu:ip:%s:info"%ip) and redis.get("three:flag") and redis.scard("access:ip:set") < 3:
         redis.hmset("buyu:ip:%s:info"%ip,{
             "rkey"         : rkey,
         })
