@@ -39,4 +39,4 @@
 </div>
 %end
 
-%rebase component_panel title='欢迎使用东胜后台管理系统',panel_color='info'
+%rebase component_panel title='欢迎使用捕鱼后台管理系统',panel_color='info'
