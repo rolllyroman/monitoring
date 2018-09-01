@@ -67,6 +67,9 @@ def exchangeModify(redis,session):
         for ip in redis.smembers("req:ip:set"):
             dic = redis.hgetall("buyu:ip:%s:info"%ip)
             data.append(dic)
+        print '----------------------'
+        print data
+        print '----------------------'
         return {"count":len(data),"data":data}
     else:
         info = {
