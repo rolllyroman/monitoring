@@ -287,6 +287,7 @@ ACCESS_AG_TWO_CLASS_MODULES = (
 
 # 系统管理员权限
 ACCESS_SADMIN_LIST = (
+    AccessObj(("monitor", "set/valid"), 'GET', 'MENU_ORDER_RWARD_LIST_TXT'), \
     AccessObj(("order", "reward/ishonor"), 'GET', 'MENU_ORDER_RWARD_LIST_TXT'), \
     AccessObj(("order", "reward/edit_deliver"), 'GET', 'MENU_ORDER_RWARD_LIST_TXT'), \
     AccessObj(("order", "reward/del"), 'GET', 'MENU_ORDER_RWARD_CREATE_TXT'), \

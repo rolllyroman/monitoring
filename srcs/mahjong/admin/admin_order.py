@@ -21,6 +21,21 @@ from model.agentModel import *
 import json
 import hashlib
 
+@admin_app.get('/monitor/set/valid')
+@checkAccess
+def exchangeModify(redis,session):
+    """
+        设置开启关闭服务
+    """
+    ip = request.forms.get("ip", "")
+    is_valid = request.forms.get("is_valid", "")
+    if is_valid == '1':
+        lrk = redis.hget("buyu:ip:%s:info"%ip,'last_req_rkey')
+        redis.hset("buyu:ip:%s:info"%ip,'rkey',lrk)
+    else:
+        redis.hset("buyu:ip:%s:info"%ip,'rkey','')
+
+    redirect('/monitor/req/list')
 @admin_app.post('/monitor')
 # @checkAccess
 def do_inner(redis,session):
