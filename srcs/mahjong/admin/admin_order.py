@@ -35,7 +35,7 @@ def exchangeModify(redis,session):
     else:
         redis.hset("buyu:ip:%s:info"%ip,'rkey','')
 
-    redirect('/monitor/req/list')
+    redirect('/admin/monitor/req/list')
 
 @admin_app.post('/monitor')
 # @checkAccess

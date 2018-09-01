@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="93364048-af8a-4b70-b8df-b4261f111290" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py" afterPath="$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py" />
-      <change beforePath="$PROJECT_DIR$/srcs/mahjong/template/default/admin_monitor_req_list.tpl" afterPath="$PROJECT_DIR$/srcs/mahjong/template/default/admin_monitor_req_list.tpl" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -88,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_order.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin_order.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="703">
+              <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
                 <element signature="e#119#139#0" expanded="true" />
               </folding>
@@ -100,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_monitor_req_list.tpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin_monitor_req_list.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/template/default/admin_monitor_req_list.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="95" column="135" lean-forward="false" selection-start-line="95" selection-start-column="135" selection-end-line="95" selection-end-column="135" />
+            <state relative-caret-position="2812">
+              <caret line="91" column="6" lean-forward="false" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -136,8 +135,8 @@
         <option value="$PROJECT_DIR$/srcs/bottle_redis.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin_auth.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
-        <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/template/default/admin_monitor_req_list.tpl" />
+        <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py" />
       </list>
     </option>
   </component>
@@ -438,21 +437,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py">
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/template/default/admin_monitor_req_list.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#119#139#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2812">
+          <caret line="91" column="6" lean-forward="false" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/template/default/admin_monitor_req_list.tpl">
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="95" column="135" lean-forward="false" selection-start-line="95" selection-start-column="135" selection-end-line="95" selection-end-column="135" />
-          <folding />
+        <state relative-caret-position="703">
+          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding>
+            <element signature="e#119#139#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
