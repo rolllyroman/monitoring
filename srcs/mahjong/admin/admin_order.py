@@ -63,7 +63,11 @@ def exchangeModify(redis,session):
     isList = request.GET.get('list', '').strip()
 
     if isList:
-
+        data = []
+        for ip in redis.smembers("req:ip:set"):
+            dic = redis.hgetall("buyu:ip:%s:info"%ip)
+            data.append(dic)
+        return {"count":len(data),"data":data}
     else:
         info = {
             'title': '监视请求列表',

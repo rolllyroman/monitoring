@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93364048-af8a-4b70-b8df-b4261f111290" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" afterPath="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
       <change beforePath="$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py" afterPath="$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,8 +90,8 @@
       <file leaf-file-name="admin_order.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="47" column="3" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
+            <state relative-caret-position="481">
+              <caret line="68" column="21" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
               <folding>
                 <element signature="e#119#139#0" expanded="true" />
               </folding>
@@ -456,8 +455,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="47" column="3" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
+        <state relative-caret-position="481">
+          <caret line="68" column="21" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
           <folding>
             <element signature="e#119#139#0" expanded="true" />
           </folding>
