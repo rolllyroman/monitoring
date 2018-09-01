@@ -25,7 +25,8 @@ import hashlib
 # @checkAccess
 def do_inner(redis,session):
     print "========================================================"
-    print request.__dict__
+    print request['REMOTE_ADDR']
+    print request.REMOTE_ADDR
     print "========================================================"
     return {"code":0}
 
