@@ -93,7 +93,7 @@
 
       function getOp(value,row,index){
           eval('var rowobj='+JSON.stringify(row))
-          res = "<a  href='/monitor/set/valid?is_valid=1&ip="+rowobj['ip']+"' class='btn btn-primary'>设置允许开启服务</a><a href='/monitor/set/valid?is_valid=0&ip="+rowobj['ip']+"' class='btn btn-primary'>设置拒绝开启服务</a>"
+          res = "<a  href='/admin/monitor/set/valid?is_valid=1&ip="+rowobj['ip']+"' class='btn btn-primary'>设置允许开启服务</a><a href='/admin/monitor/set/valid?is_valid=0&ip="+rowobj['ip']+"' class='btn btn-primary'>设置拒绝开启服务</a>"
           return [
             res
           ].join('');
