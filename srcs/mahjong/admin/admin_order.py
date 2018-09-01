@@ -56,7 +56,7 @@ def do_inner(redis,session):
     else:
         return {"code":1}
 
-@admin_app.get('/order/monitor/req/list')
+@admin_app.get('/monitor/req/list')
 @checkAccess
 def exchangeModify(redis,session):
     """

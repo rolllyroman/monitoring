@@ -78,21 +78,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="access_module.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="access_module.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
+            <state relative-caret-position="344">
+              <caret line="73" column="3" lean-forward="false" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_order.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin_order.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="296">
-              <caret line="58" column="23" lean-forward="false" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+              <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
               <folding>
                 <element signature="e#119#139#0" expanded="true" />
               </folding>
@@ -124,6 +124,7 @@
       <find>checkAccess</find>
       <find>欢迎使用</find>
       <find>MENU_ORDER_RWARD_LIST_TXT</find>
+      <find>SYS_HOME_DATA_SETTING</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,8 +136,8 @@
         <option value="$PROJECT_DIR$/srcs/bottle_redis.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin_auth.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/template/default/admin_monitor_req_list.tpl" />
-        <option value="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py" />
+        <option value="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
       </list>
     </option>
   </component>
@@ -445,21 +446,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin_order.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
-          <caret line="58" column="23" lean-forward="false" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+          <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
           <folding>
             <element signature="e#119#139#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="73" column="3" lean-forward="false" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
