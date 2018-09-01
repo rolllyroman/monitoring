@@ -29,6 +29,10 @@ def exchangeModify(redis,session):
     """
     ip = request.forms.get("ip", "")
     is_valid = request.forms.get("is_valid", "")
+    print '--------------------'
+    print ip
+    print is_valid
+    print '--------------------'
     if is_valid == '1':
         lrk = redis.hget("buyu:ip:%s:info"%ip,'last_req_rkey')
         redis.hset("buyu:ip:%s:info"%ip,'rkey',lrk)
