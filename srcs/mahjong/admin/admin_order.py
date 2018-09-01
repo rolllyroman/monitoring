@@ -21,6 +21,14 @@ from model.agentModel import *
 import json
 import hashlib
 
+@admin_app.post('/monitor/run_server')
+#@checkAccess
+def do_inner(redis,session):
+    print "========================================================"
+    print request
+    print "========================================================"
+    return {"code":0}
+
 @admin_app.get('/order/reward/ishonor')
 @checkAccess
 def createItem(redis,session):

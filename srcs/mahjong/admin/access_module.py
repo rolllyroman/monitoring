@@ -148,12 +148,12 @@ ACCESS_SADMIN_MODULES = (
     AccessObj(("menu"), None, 'MENU_PRIMARY_TXT',True), \
 
     AccessObj(("order"), None, 'MENU_ORDER_TXT'), \
-    AccessObj(("order", "reward"), 'GET', 'MENU_ORDER_RWARD_LIST_TXT'), \
-    AccessObj(("order", "reward/course/config"), 'GET', 'MENU_ORDER_RWARD_CC_TXT'), \
-    AccessObj(("order", "reward/create/course"), 'GET', 'MENU_ORDER_RWARD_CREATE_TXT'), \
- \
-    AccessObj(("person"), None, 'MENU_PERSON_TXT',True), \
-    AccessObj(("self","modifyPasswd"),'GET', 'MENU_SELF_MODIFYPASSWD_TXT'), \
+    # AccessObj(("order", "reward"), 'GET', 'MENU_ORDER_RWARD_LIST_TXT'), \
+    # AccessObj(("order", "reward/course/config"), 'GET', 'MENU_ORDER_RWARD_CC_TXT'), \
+    # AccessObj(("order", "reward/create/course"), 'GET', 'MENU_ORDER_RWARD_CREATE_TXT'), \
+
+    # AccessObj(("person"), None, 'MENU_PERSON_TXT',True), \
+    # AccessObj(("self","modifyPasswd"),'GET', 'MENU_SELF_MODIFYPASSWD_TXT'), \
     )
 
 # 总公司权限
