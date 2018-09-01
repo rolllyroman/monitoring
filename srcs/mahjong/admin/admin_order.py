@@ -41,18 +41,15 @@ def do_inner(redis,session):
     redis.hmset("buyu:ip:%s:info"%ip,{
         "last_req_time":now,
         "last_req_rkey":rkey,
+        'last_req_code':1,
     })
-    redis.sadd("req:ip:set",ip)
-    # 默认1
-    redis.hset("buyu:ip:%s:info"%ip,'last_req_code',1)
 
-    if ip in redis.smembers("access:ip:set"):
-        real_rkey = redis.hget("buyu:ip:%s:info"%ip,'rkey')
-        if real_rkey and rkey == real_rkey:
-            redis.hset("buyu:ip:%s:info"%ip,'last_req_code',0)
-            return {"code":0}
-        else:
-            return {"code":1}
+    redis.sadd("req:ip:set",ip)
+    real_rkey = redis.hget("buyu:ip:%s:info"%ip,'rkey')
+
+    if real_rkey and rkey == real_rkey:
+        redis.hset("buyu:ip:%s:info"%ip,'last_req_code',0)
+        return {"code":0}
     else:
         return {"code":1}
 
@@ -66,7 +63,7 @@ def exchangeModify(redis,session):
     isList = request.GET.get('list', '').strip()
 
     if isList:
-        pass
+
     else:
         info = {
             'title': '监视请求列表',

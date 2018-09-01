@@ -71,7 +71,7 @@ MENU_MODULES = (
     AccessObj(("order", "reward/course/config"), 'GET', 'MENU_ORDER_RWARD_CC_TXT'), \
     AccessObj(("order", "reward/create/course"), 'GET', 'MENU_ORDER_RWARD_CREATE_TXT'), \
     AccessObj(("monitor", "req/list"), 'GET', 'MENU_ORDER_RWARD_LIST_TXT'), \
-    
+
     #数据统计
     AccessObj(("accounts"), None, 'MENU_ACCOUNTS_TXT',True), \
     AccessObj(("statistics", "reg"), 'GET', 'MENU_STATISTICS_REG_TXT'), \
