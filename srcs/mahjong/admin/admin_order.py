@@ -22,7 +22,7 @@ import json
 import hashlib
 
 @admin_app.post('/monitor/run_server')
-@checkAccess
+# @checkAccess
 def do_inner(redis,session):
     print "========================================================"
     print request
