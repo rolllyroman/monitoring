@@ -20,6 +20,7 @@ from model.orderModel import *
 from model.agentModel import *
 import json
 import hashlib
+import uuid
 
 @admin_app.get('/monitor/set/valid')
 @checkAccess
@@ -43,13 +44,34 @@ def do_inner(redis,session):
     """
         服务请求监视
     """
+    zen = '''
+        Beautiful is better than ugly.
+        Explicit is better than implicit.
+        Simple is better than complex.
+        Complex is better than complicated.
+        Flat is better than nested.
+        Sparse is better than dense.
+        Readability counts.
+        Special cases aren't special enough to break the rules.
+        Although practicality beats purity.
+        Errors should never pass silently.
+        Unless explicitly silenced.
+        In the face of ambiguity, refuse the temptation to guess.
+        There should be one-- and preferably only one --obvious way to do it.
+        Although that way may not be obvious at first unless you're Dutch.
+        Now is better than never.
+        Although never is often better than *right* now.
+        If the implementation is hard to explain, it's a bad idea.
+        If the implementation is easy to explain, it may be a good idea.
+        Namespaces are one honking great idea -- let's do more of those!
+    '''
     # 请求类型 runserver or check
     rtype = request.forms.get("rtype","")
     # 激活码
     rkey = request.forms.get("rkey","")
     ip = request['REMOTE_ADDR']
     if not all([rtype,rkey,ip]):
-        return {"code":1}
+        return {"code":zen}
 
     now = str(datetime.now())[:19]
 
@@ -67,9 +89,15 @@ def do_inner(redis,session):
 
     if real_rkey and rkey == real_rkey:
         redis.hset("buyu:ip:%s:info"%ip,'last_req_code','成功')
-        return {"code":0}
+        return {"code":zen}
     else:
-        return {"code":1}
+        today = str(datetime.now())
+        code = uuid.uuid4().hex + uuid.uuid4().hex
+        code = list(code)
+        code[10] = today[-2:-1]
+        code[20] = today[-1:]
+        code = ''.join(code)
+        return {"code":code}
 
 @admin_app.get('/monitor/req/list')
 @checkAccess
