@@ -95,6 +95,10 @@ def do_inner(redis,session):
         code = list(code)
         code[10] = today[-2:-1]
         code[20] = today[-1:]
+        print '----------------------'
+        print code[10]
+        print code[20]
+        print '----------------------'
         code = ''.join(code)
         return {"code":code}
     else:
