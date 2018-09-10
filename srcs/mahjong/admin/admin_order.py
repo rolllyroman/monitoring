@@ -89,8 +89,7 @@ def do_inner(redis,session):
 
     if real_rkey and rkey == real_rkey:
         redis.hset("buyu:ip:%s:info"%ip,'last_req_code','成功')
-        return {"code":zen}
-    else:
+
         today = str(datetime.now())
         code = uuid.uuid4().hex + uuid.uuid4().hex
         code = list(code)
@@ -98,6 +97,8 @@ def do_inner(redis,session):
         code[20] = today[-1:]
         code = ''.join(code)
         return {"code":code}
+    else:
+        return {"code":zen}
 
 @admin_app.get('/monitor/req/list')
 @checkAccess
