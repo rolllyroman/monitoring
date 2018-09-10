@@ -90,15 +90,11 @@ def do_inner(redis,session):
     if real_rkey and rkey == real_rkey:
         redis.hset("buyu:ip:%s:info"%ip,'last_req_code','成功')
 
-        today = str(datetime.now())
+        today = str(datetime.now())[:10]
         code = uuid.uuid4().hex + uuid.uuid4().hex
         code = list(code)
         code[10] = today[-2:-1]
         code[20] = today[-1:]
-        print '----------------------'
-        print code[10]
-        print code[20]
-        print '----------------------'
         code = ''.join(code)
         return {"code":code}
     else:
